@@ -1,12 +1,13 @@
 {
 	"name" : "phpmv/ubiquity-codeception",
 	"description" : "Make Codeception's functional tests for Ubiquity framework",
-	"type" : "framework",
+	"type" : "module",
 	"keywords" : [
 		"php",
 		"framework",
 		"mvc",
-		"orm"
+		"orm",
+		"tests"
 	],
 	"authors" : [{
 			"name" : "Jean-Christophe HERON",
