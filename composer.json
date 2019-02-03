@@ -1,0 +1,29 @@
+{
+	"name" : "phpmv/ubiquity-codeception",
+	"description" : "Make Codeception's functional tests for Ubiquity framework",
+	"type" : "framework",
+	"keywords" : [
+		"php",
+		"framework",
+		"mvc",
+		"orm"
+	],
+	"authors" : [{
+			"name" : "Jean-Christophe HERON",
+			"email" : "myaddressmail@gmail.com",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">7.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Codeception\\Module\\" : "src/",
+			"Codeception\\Lib\\Connector\\" : "src/"
+		}
+	},
+	"require-dev" : {
+		"codeception/codeception" : "^2.2"
+	}
+}
