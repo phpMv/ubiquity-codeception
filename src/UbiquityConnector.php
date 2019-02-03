@@ -26,11 +26,12 @@ class UbiquityConnector extends Universal {
 			$_POST = $_REQUEST;
 		}
 		$parseURI = parse_url ( $uri );
-		if (isset ( $parseURI [PHP_URL_PATH] )) {
-			$_GET ['c'] = $parseURI [PHP_URL_PATH];
+		if (isset ( $parseURI ['path'] )) {
+			$_GET ['c'] = ltrim($parseURI ['path'],"/");
 		} else {
-			$_GET ['c'] = $uri;
+			$_GET ['c'] = "";
 		}
+		
 		$_SERVER ['REQUEST_METHOD'] = strtoupper ( $request->getMethod () );
 		$_SERVER ['REQUEST_URI'] = $uri;
 

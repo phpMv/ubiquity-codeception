@@ -4,6 +4,8 @@ namespace Codeception\Module;
 
 use Codeception\Lib\Framework;
 use Codeception\Lib\Connector\UbiquityConnector;
+use Ubiquity\controllers\Startup;
+use Codeception\TestInterface;
 
 class Ubiquity extends Framework {
 	protected $config = [ "root" => '/' ];
@@ -18,5 +20,17 @@ class Ubiquity extends Framework {
 		$this->client = new UbiquityConnector ();
 		$this->client->setIndex ( $index );
 	}
+
+	/**
+	 * HOOK: after scenario
+	 *
+	 * @param TestInterface $test
+	 */
+	public function _after(TestInterface $test)
+	{
+		Startup::setConfig([]);
+		$_SESSION = $_FILES = $_GET = $_POST = $_COOKIE = $_REQUEST = [];
+	}
+	
 }
 
