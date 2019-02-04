@@ -20,11 +20,13 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Codeception\\Module\\" : "src/",
-			"Codeception\\Lib\\Connector\\" : "src/"
+			"Codeception\\Module\\" : "src/functional/",
+			"Codeception\\Lib\\Connector\\" : "src/functional/",
+			"Ubiquity\\tests\\unit\\" : "src/unit/"
 		}
 	},
 	"require-dev" : {
-		"codeception/codeception" : "^2.2"
+		"codeception/codeception" : "^2.2",
+		"phpmv/ubiquity" : "dev-master"
 	}
 }
