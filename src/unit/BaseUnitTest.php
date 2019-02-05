@@ -41,6 +41,7 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	abstract protected function getDatabase();
 
 	protected function _startCache() {
+		CacheManager::$cache=null;
 		CacheManager::startProd ( $this->config );
 	}
 
