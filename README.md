@@ -5,7 +5,7 @@ tests for Ubiquity applications.
 
 ## Installation
 
-Add a dev dependancy on `phpmv/ubiquity-codeception` to your project's
+Add a dev dependency on `phpmv/ubiquity-codeception` to your project's
 `composer.json` and enable it as a Codeception module, from a test suite
 configuration file.
 
