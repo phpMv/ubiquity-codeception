@@ -24,7 +24,8 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 		
 	protected function _loadConfig() {
 		$this->config = include ROOT . 'config/config.php';
-		$this->config["database"]=$this->getDatabase()??$this->config["database"];
+		
+		$this->config["database"]=DAO::getDbOffset($this->config,'default');
 		$srv=$this->config['database']['serverName'];
 		$ip = getenv ( 'SERVICE_MYSQL_IP' );
 		if ($ip == false) {
