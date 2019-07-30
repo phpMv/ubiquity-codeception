@@ -55,10 +55,10 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 		}
 	}
 
-	protected function _startDatabase(DAO $dao) {
-		$db = $this->config ["database"] ?? [ ];
+	protected function _startDatabase(DAO $dao, $dbOffset = 'default') {
+		$db = DAO::getDbOffset ( $this->config, $dbOffset );
 		if ($db ["dbName"] !== "") {
-			$dao->connect ( $db ["type"]??'mysql', $db ["dbName"], $db ["serverName"] ?? '127.0.0.1', $db ["port"] ?? 3306, $db ["user"] ?? 'root', $db ["password"] ?? '', $db ["options"] ?? [ ], $db ["cache"] ?? false);
+			$dao->connect ( $dbOffset, $db ["type"] ?? 'mysql', $db ["dbName"], $db ["serverName"] ?? '127.0.0.1', $db ["port"] ?? 3306, $db ["user"] ?? 'root', $db ["password"] ?? '', $db ["options"] ?? [ ], $db ["cache"] ?? false);
 		}
 	}
 
