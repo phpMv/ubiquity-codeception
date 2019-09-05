@@ -4,6 +4,7 @@ namespace Ubiquity\tests\unit;
 use Ubiquity\cache\CacheManager;
 use Ubiquity\controllers\Router;
 use Ubiquity\orm\DAO;
+use Ubiquity\db\providers\pdo\PDOWrapper;
 
 abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	protected $config;
@@ -59,7 +60,7 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	protected function _startDatabase(DAO $dao, $dbOffset = 'default') {
 		$db = DAO::getDbOffset ( $this->config, $dbOffset );
 		if ($db ["dbName"] !== "") {
-			$dao->connect ( $dbOffset, $db ["type"] ?? 'mysql', $db ["dbName"], $db ["serverName"] ?? '127.0.0.1', $db ["port"] ?? 3306, $db ["user"] ?? 'root', $db ["password"] ?? '', $db ["options"] ?? [ ], $db ["cache"] ?? false);
+			$dao->connect ( $dbOffset,$db["wrapper"]??PDOWrapper::class, $db ["type"] ?? 'mysql', $db ["dbName"], $db ["serverName"] ?? '127.0.0.1', $db ["port"] ?? 3306, $db ["user"] ?? 'root', $db ["password"] ?? '', $db ["options"] ?? [ ], $db ["cache"] ?? false);
 		}
 	}
 
