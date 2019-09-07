@@ -5,6 +5,7 @@ use Ubiquity\cache\CacheManager;
 use Ubiquity\controllers\Router;
 use Ubiquity\orm\DAO;
 use Ubiquity\db\providers\pdo\PDOWrapper;
+use Ubiquity\controllers\Startup;
 
 abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	protected $config;
@@ -37,6 +38,7 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 		$this->config['di']=$this->getDi()??[];
 		$this->config['cache']['directory']=$this->getCacheDirectory()??$this->config['cache']['directory'];
 		$this->config['cache']['system']=$this->getCacheSystem()??$this->config['cache']['system'];
+		Startup::setConfig($this->config);
 	}
 	
 	abstract protected function getDi();
