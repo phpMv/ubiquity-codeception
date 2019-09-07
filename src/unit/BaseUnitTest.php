@@ -6,6 +6,7 @@ use Ubiquity\controllers\Router;
 use Ubiquity\orm\DAO;
 use Ubiquity\db\providers\pdo\PDOWrapper;
 use Ubiquity\controllers\Startup;
+use Ubiquity\cache\system\ArrayCache;
 
 abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	protected $config;
@@ -46,7 +47,7 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	abstract protected function getDatabase();
 	
 	protected function getCacheSystem(){
-		return null;
+		return ArrayCache::class;
 	}
 
 	protected function _startCache() {
