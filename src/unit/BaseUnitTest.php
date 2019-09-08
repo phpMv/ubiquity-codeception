@@ -37,7 +37,7 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 		$this->config['database']['serverName']=$ip;
 		$this->config['di']=$this->getDi()??[];
 		$this->config['cache']['directory']=$this->getCacheDirectory()??$this->config['cache']['directory'];
-		//$this->config['cache']['system']=$this->getCacheSystem()??$this->config['cache']['system'];
+		$this->config['cache']['system']=$this->getCacheSystem();
 		Startup::setConfig($this->config);
 	}
 	
