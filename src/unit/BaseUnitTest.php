@@ -37,7 +37,6 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 		$this->config['database']['serverName']=$ip;
 		$this->config['di']=$this->getDi()??$this->config['di'];
 		$this->config['cache']['directory']=$this->getCacheDirectory()??$this->config['cache']['directory'];
-		$this->config['cache']['system']=$this->getCacheSystem()??$this->config['cache']['system'];
 		Startup::setConfig($this->config);
 	}
 	
@@ -45,10 +44,6 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	abstract protected function getCacheDirectory();
 	abstract protected function getDatabase();
 	
-	protected function getCacheSystem(){
-		return null;
-	}
-
 	protected function _startCache() {
 		CacheManager::$cache=null;
 		CacheManager::startProd ( $this->config );
