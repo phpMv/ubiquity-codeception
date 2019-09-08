@@ -37,6 +37,7 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 		$this->config['database']['serverName']=$ip;
 		$this->config['di']=$this->getDi()??$this->config['di'];
 		$this->config['cache']['directory']=$this->getCacheDirectory()??$this->config['cache']['directory'];
+		$this->canUpdateConfig($this->config);
 		Startup::setConfig($this->config);
 	}
 	
@@ -47,6 +48,10 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 	protected function _startCache() {
 		CacheManager::$cache=null;
 		CacheManager::startProd ( $this->config );
+	}
+	
+	protected function canUpdateConfig(&$config){
+		
 	}
 
 	protected function _startRouter($what = false) {
