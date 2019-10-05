@@ -26,8 +26,7 @@
 		}
 	},
 	"require-dev" : {
-		"codeception/codeception" : "^2.2",
-		"phpmv/ubiquity" : "dev-master"
+		"codeception/codeception" : "^2.2"
 	},
      "extra": {
         "branch-alias": {
