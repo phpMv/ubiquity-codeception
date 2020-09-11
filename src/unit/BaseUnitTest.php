@@ -32,7 +32,7 @@ abstract class BaseUnitTest extends \Codeception\Test\Unit {
 		$this->config = include ROOT . 'config/config.php';
 		$this->oConfig = $this->config;
 		$this->config["database"] = DAO::getDbOffset($this->config, $this->getDatabase());
-		$srv = $this->config['database']['serverName'];
+		$srv = $this->config['database']['serverName'] ?? '127.0.0.1';
 		$ip = getenv('SERVICE_MYSQL_IP');
 		if ($ip == false) {
 			$ip = $srv;
