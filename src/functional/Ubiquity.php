@@ -2,10 +2,10 @@
 
 namespace Codeception\Module;
 
-use Codeception\Lib\Framework;
 use Codeception\Lib\Connector\UbiquityConnector;
 use Ubiquity\controllers\Startup;
 use Codeception\TestInterface;
+use Codeception\Lib\Framework;
 
 class Ubiquity extends Framework {
 	protected $config = [ "root" => '/' ];
