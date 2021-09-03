@@ -3,8 +3,15 @@
 namespace Codeception\Lib\Connector;
 
 use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\HttpKernel\HttpKernelBrowser as Client;
+use Symfony\Component\HttpKernel\Kernel as SymfonyKernel;
+use function class_alias;
 
-class UbiquityConnector extends Universal {
+
+if (SymfonyKernel::VERSION_ID < 40300) {
+    class_alias('Symfony\Component\HttpKernel\Client', 'Symfony\Component\HttpKernel\HttpKernelBrowser');
+}
+class UbiquityConnector extends Client {
 
 	public function doRequest($request) {
 		if ($this->mockedResponse) {
