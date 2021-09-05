@@ -17,7 +17,7 @@ class Ubiquity extends Framework {
 	 */
 	public function _initialize() {
 		$index = \Codeception\Configuration::projectDir () . $this->config ['root'] . '/index.php';
-		$this->client = new UbiquityConnector ($this);
+		$this->client = new UbiquityConnector ();
 		$this->client->setIndex ( $index );
 	}
 
