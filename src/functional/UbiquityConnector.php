@@ -15,10 +15,10 @@ class UbiquityConnector extends Client {
         $this->index = $index;
     }
     
-    public function mockResponse($response)
-    {
+    public function mockResponse($response){
         $this->mockedResponse = $response;
     }
+    
 	public function doRequest($request) {
 		if ($this->mockedResponse) {
 			$response = $this->mockedResponse;
@@ -30,7 +30,7 @@ class UbiquityConnector extends Client {
 		$_SERVER = $request->getServer ();
 		$_FILES = $this->remapFiles ( $request->getFiles () );
 
-		$uri = $request->getUri ();
+		$uri = \str_replace('http://localhost', '', $request->getUri());
 
 		$_REQUEST = $this->remapRequestParameters ( $request->getParameters () );
 		if (strtoupper ( $request->getMethod () ) == 'GET') {
