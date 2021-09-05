@@ -12,7 +12,11 @@ if (SymfonyKernel::VERSION_ID < 40300) {
     class_alias('Symfony\Component\HttpKernel\Client', 'Symfony\Component\HttpKernel\HttpKernelBrowser');
 }
 class UbiquityConnector extends Client {
-
+    private $module;
+    
+    public function __construct($module){
+        $this->module = $module;
+    }
 	public function doRequest($request) {
 		if ($this->mockedResponse) {
 			$response = $this->mockedResponse;
